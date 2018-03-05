@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
@@ -8,9 +9,10 @@ type Response struct {
 	Message string `json:"message"`
 }
 
-func Handler() (Response, error) {
-	return Response{
-		Message: "Okay so your other function also executed successfully!",
+func Handler() (events.APIGatewayProxyResponse, error) {
+	return events.APIGatewayProxyResponse{
+		Body:       "Okay so your other function also executed successfully!",
+		StatusCode: 200,
 	}, nil
 }
 
