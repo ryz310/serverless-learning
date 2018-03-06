@@ -5,10 +5,6 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type Response struct {
-	Message string `json:"message"`
-}
-
 func Handler() (events.APIGatewayProxyResponse, error) {
 	return events.APIGatewayProxyResponse{
 		Body:       "Go Serverless v1.0! Your function executed successfully!",
